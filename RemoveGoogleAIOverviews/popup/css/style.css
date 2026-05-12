@@ -44,6 +44,7 @@
     display: flex;
     justify-content: space-between;
     width: 210px;
+    height: 63px;
 }
 
 body {
@@ -53,15 +54,24 @@ body {
     display: flex;
     font-family: Helvetica;
     height: 100%;
-    justify-content: center;
+    justify-content: space-evenly;
     margin: 0;
     padding: 0;
     width: 100%;
+    flex-direction: column;
+    user-select: none;
 }
 
 html {
-    height: 48px;
     width: 238px;
+}
+
+.note {
+    height: 79px;
+    width: 210px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 @media (prefers-color-scheme: light) {

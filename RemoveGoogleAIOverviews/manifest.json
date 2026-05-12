@@ -4,7 +4,7 @@
     "version": "1.8.0",
     "description": "Hide all annoying Google AI overviews.",
     "action": {
-      "default_popup": "index.html"
+      "default_popup": "popup/index.html"
     },
     "permissions": [
         "storage"
@@ -12,7 +12,10 @@
     "content_scripts": [
         {
           "matches": ["*://*.google.com/*"],
-          "js": ["js/website.js"]
+          "js": [
+            "js/functions.js",
+            "js/website.js"
+          ]
         }
     ],
      "icons": {

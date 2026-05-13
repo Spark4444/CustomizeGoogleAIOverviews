@@ -1,8 +1,8 @@
 {
     "manifest_version": 3,
-    "name": "Remove Google AI Overviews",
-    "version": "1.8.0",
-    "description": "Hide all annoying Google AI overviews.",
+    "name": "Customize Google AI Overviews",
+    "version": "2.0.0",
+    "description": "A Chrome extension to customize Google AI overviews content.",
     "action": {
       "default_popup": "popup/index.html"
     },
@@ -13,8 +13,9 @@
         {
           "matches": ["*://*.google.com/*"],
           "js": [
-            "js/functions.js",
-            "js/website.js"
+            "js/shared/functions.js",
+            "js/website/functions.js",
+            "js/website/website.js"
           ]
         }
     ],

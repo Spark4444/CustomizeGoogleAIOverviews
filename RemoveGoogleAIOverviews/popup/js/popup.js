@@ -8,6 +8,14 @@ getFromChromeStorage("options", (value) => {
         const selector = checkbox.getAttribute("selector");
         checkbox.checked = !checkIfAValueIsSet(value[selector], false);
     });
+
+    let newOptions = {};
+    checkboxes.forEach(element => {
+        const selector = element.getAttribute("selector");
+        newOptions[selector] = !element.checked;
+    });
+
+    saveToChromeStorage("options", newOptions);
 });
 
 

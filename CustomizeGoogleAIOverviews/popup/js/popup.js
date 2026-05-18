@@ -1,5 +1,6 @@
 // Variables
 const checkboxes = document.querySelectorAll("#iosToggle");
+
 // Retrieve the current options from Chrome storage
 getFromChromeStorage("options", (value) => {
     value = checkIfAValueIsSet(value, {});

@@ -1,5 +1,4 @@
-let selectors = ["#eKIzJc", ".Q2WBBe.fQ8VVc.PVRc4d", ".ofHStc.Dn7Fzd.OIPUDf"];
-
+// Function to show/hide an element based on shouldShow boolean
 function showHide(element, shouldShow) {
     element.style.display = shouldShow ? "" : "none";
 }

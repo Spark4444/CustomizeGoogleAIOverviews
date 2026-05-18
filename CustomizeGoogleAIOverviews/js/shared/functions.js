@@ -20,3 +20,7 @@ function checkIfAValueIsSet(value, defaultValue){
     }
 }
 
+
+function resetChromeStorage() {
+    chrome.storage.sync.clear();
+}

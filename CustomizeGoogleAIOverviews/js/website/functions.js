@@ -1,21 +1,38 @@
+const styleTagId = "CGAIOHideStyles";
+const hiddenSelectorState = {};
+
 // Function to show/hide an element based on shouldShow boolean
 function showHide(element, shouldShow) {
     element.style.display = shouldShow ? "" : "none";
 }
 
+// Function to get or create the style tag for hiding elements
+function getOrCreateHideStyleTag() {
+    let styleTag = document.getElementById(styleTagId);
+
+    if (!styleTag) {
+        styleTag = document.createElement("style");
+        styleTag.id = styleTagId;
+        (document.head || document.documentElement).appendChild(styleTag);
+    }
+
+    return styleTag;
+}
+
+// Function to apply hide styles based on the hiddenSelectorState
+function applyHideStyles() {
+    const styleTag = getOrCreateHideStyleTag();
+    const hiddenSelectors = Object.keys(hiddenSelectorState).filter(selector => hiddenSelectorState[selector] === true);
+
+    styleTag.textContent = hiddenSelectors
+        .map(selector => `${selector} { display: none !important; }`)
+        .join("\n");
+}
+
 // Function to show/hide elements based on options
 function showHideElement(selector, shouldShow) {
-    const elements = document.querySelectorAll(selector);
-    if (elements && elements.length > 0) {
-        elements.forEach(element => {
-            showHide(element, shouldShow);
-        });
-    } else {
-        // Observer
-        observeForSelector(selector, (els) => {
-            els.forEach(el => showHide(el, shouldShow));
-        });
-    }
+    hiddenSelectorState[selector] = !shouldShow;
+    applyHideStyles();
 }
 
 // Function to find the main section element of the video element

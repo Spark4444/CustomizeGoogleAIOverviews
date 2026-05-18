@@ -7,7 +7,13 @@ checkboxes.forEach(checkbox => {
     selectors.push(selector);
 });
 
-checkIfOptionsAreSet(selectors);
+checkIfOptionsAreSet(selectors, (options) => {
+    // Set the checkbox states based on the options
+    checkboxes.forEach(checkbox => {
+        const selector = checkbox.getAttribute("selector");
+        checkbox.checked = options[selector];
+    });
+});
 
 // Go through each checkbox and add event listeners
 checkboxes.forEach(checkbox => {

@@ -20,7 +20,7 @@ function checkIfAValueIsSet(value, defaultValue){
     }
 }
 
-function checkIfOptionsAreSet(selectors) {
+function checkIfOptionsAreSet(selectors, callback) {
     // On startup check if all the options are present and init them if necessary
     getFromChromeStorage("options", (options) => {
         options = checkIfAValueIsSet(options, {});
@@ -37,6 +37,9 @@ function checkIfOptionsAreSet(selectors) {
 
         if (JSON.stringify(options) !== JSON.stringify(newOptions)) {
             saveToChromeStorage("options", newOptions);
+        }
+        if (callback) {
+            callback(newOptions);
         }
     });
 }

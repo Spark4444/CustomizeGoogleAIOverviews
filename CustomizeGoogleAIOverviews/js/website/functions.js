@@ -14,29 +14,6 @@ function getOrCreateHideStyleTag() {
     return styleTag;
 }
 
-// Helper to observe the DOM until a selector has matching elements, then run callback and disconnect since not all of the ai overview elements may be present initially
-function observeForSelector(selector, cb) {
-    const runCheck = () => {
-        const found = document.querySelectorAll(selector);
-        if (found && found.length > 0) {
-            cb(found);
-            return true;
-        }
-        return false;
-    };
-
-    // If already present, run immediately
-    if (runCheck()) return;
-
-    const observer = new MutationObserver((mutations, obs) => {
-        if (runCheck()) {
-            obs.disconnect();
-        }
-    });
-
-    observer.observe(document.documentElement || document.body, { childList: true, subtree: true });
-}
-
 // Function to update the UI based on options
 function updateFromOptions(options) {
     options = checkIfAValueIsSet(options, {});
@@ -57,6 +34,7 @@ function updateFromOptions(options) {
 // Optimization function to find changed options and only update those
 function findOptionsThatChanged(oldOptions, newOptions) {
     const changedOptions = {};
+    oldOptions = checkIfAValueIsSet(oldOptions, {});
     Object.keys(newOptions).forEach(key => {
         if (oldOptions[key] !== newOptions[key]) {
             changedOptions[key] = newOptions[key];

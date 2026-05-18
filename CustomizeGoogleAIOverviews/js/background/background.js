@@ -9,7 +9,7 @@ chrome.runtime.onInstalled.addListener((details) => {
 });
 
 
-let selectors = ["#eKIzJc", ".Q2WBBe.fQ8VVc.PVRc4d", ".ofHStc.Dn7Fzd.OIPUDf", ".WTfRgd.CSBcfd"];
+let selectors = ["#eKIzJc", ".n6owBd.awi2gc:has(.Q2WBBe.fQ8VVc.PVRc4d)", ".ofHStc.Dn7Fzd.OIPUDf", ".WTfRgd.CSBcfd"];
 
 // On startup check if all the options are present and init them if necessary
 getFromChromeStorage("options", (options) => {

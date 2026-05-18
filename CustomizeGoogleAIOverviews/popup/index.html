@@ -8,6 +8,9 @@
 </head>
 <body>
     <div class="toggle" text="Remove Google AI Overview completely" selector="#eKIzJc"></div>
+    <!-- This works since this extension is based on chromium and supports the :has() CSS pseudo-class -->
+    <!-- Video element in itself is unique but the main section element of ai overiew isn't and it contains text for the video which needs to be deleted -->
+    <!-- And Because of this we need to use the :has() CSS pseudo-class -->
     <div class="toggle" text="Remove Overview Videos" selector=".n6owBd.awi2gc:has(.Q2WBBe.fQ8VVc.PVRc4d)"></div>
     <div class="toggle" text="Remove Reference Section" selector=".ofHStc.Dn7Fzd.OIPUDf"></div>
     <div class="toggle" text="Remove Reference Images" selector=".WTfRgd.CSBcfd"></div>

@@ -14,7 +14,7 @@ toggles.forEach(toggle => {
     toggle.innerHTML = `
         <div class="btnText">${text}</div>
         <label class="switch">
-            <input id="iosToggle" type="checkbox" selector="${selector}">
+            <input class="iosToggle" type="checkbox" selector="${selector}">
             <div class="btn"></div>
         </label>
     `;

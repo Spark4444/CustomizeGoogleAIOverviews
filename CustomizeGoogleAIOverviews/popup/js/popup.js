@@ -1,24 +1,13 @@
 // Variables
-const checkboxes = document.querySelectorAll("#iosToggle");
+const checkboxes = document.querySelectorAll(".iosToggle");
 
-// Retrieve the current options from Chrome storage
-getFromChromeStorage("options", (value) => {
-    value = checkIfAValueIsSet(value, {});
-
-    checkboxes.forEach(checkbox => {
-        const selector = checkbox.getAttribute("selector");
-        checkbox.checked = checkIfAValueIsSet(value[selector], false);
-    });
-
-    let newOptions = {};
-    checkboxes.forEach(element => {
-        const selector = element.getAttribute("selector");
-        newOptions[selector] = element.checked;
-    });
-
-    saveToChromeStorage("options", newOptions);
+let selectors = [];
+checkboxes.forEach(checkbox => {
+    const selector = checkbox.getAttribute("selector");
+    selectors.push(selector);
 });
 
+checkIfOptionsAreSet(selectors);
 
 // Go through each checkbox and add event listeners
 checkboxes.forEach(checkbox => {

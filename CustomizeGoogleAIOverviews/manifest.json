@@ -14,8 +14,7 @@
     ],
     "content_scripts": [
         {
-          "matches": ["*://*.google.com/search*"],
-          "include_globs": ["*://*.google.com/search?q=*"],
+          "matches": ["*://*.google.com/*"],
           "js": [
             "js/shared/functions.js",
             "js/website/functions.js",

@@ -18,10 +18,10 @@ getFromChromeStorage("options", (options) => {
 
     selectors.forEach(sel => {
         if (!options[sel]) {
-            newOptions[sel] = false;
+            newOptions[sel] = true;
         }
         else {
-            newOptions[sel] = true;
+            newOptions[sel] = false;
         }
     });
 

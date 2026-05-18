@@ -1,11 +1,6 @@
 const styleTagId = "CGAIOHideStyles";
 const hiddenSelectorState = {};
 
-// Function to show/hide an element based on shouldShow boolean
-function showHide(element, shouldShow) {
-    element.style.display = shouldShow ? "" : "none";
-}
-
 // Function to get or create the style tag for hiding elements
 function getOrCreateHideStyleTag() {
     let styleTag = document.getElementById(styleTagId);
@@ -47,7 +42,7 @@ function updateFromOptions(options) {
     options = checkIfAValueIsSet(options, {});
     Object.entries(options).forEach(([selector, value]) => {
         // All selectors now use the style tag system, including the video element
-        hiddenSelectorState[selector] = !value;
+        hiddenSelectorState[selector] = value;
         const styleTag = getOrCreateHideStyleTag();
         const hiddenSelectors = Object.keys(hiddenSelectorState).filter(selector => hiddenSelectorState[selector] === true);
 

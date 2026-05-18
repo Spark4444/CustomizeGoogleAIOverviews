@@ -7,13 +7,13 @@ getFromChromeStorage("options", (value) => {
 
     checkboxes.forEach(checkbox => {
         const selector = checkbox.getAttribute("selector");
-        checkbox.checked = !checkIfAValueIsSet(value[selector], false);
+        checkbox.checked = checkIfAValueIsSet(value[selector], false);
     });
 
     let newOptions = {};
     checkboxes.forEach(element => {
         const selector = element.getAttribute("selector");
-        newOptions[selector] = !element.checked;
+        newOptions[selector] = element.checked;
     });
 
     saveToChromeStorage("options", newOptions);
@@ -24,7 +24,7 @@ getFromChromeStorage("options", (value) => {
 checkboxes.forEach(checkbox => {
     // Add event listener to the checkbox to save the setting
     checkbox.addEventListener("input", () => {
-        const isChecked = !checkbox.checked;
+        const isChecked = checkbox.checked;
         const selector = checkbox.getAttribute("selector");
 
         // Check if the value in Chrome storage is different from the checkbox state and save it

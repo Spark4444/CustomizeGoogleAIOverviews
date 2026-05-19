@@ -3,7 +3,7 @@ Customize and hide parts of Google AI Overviews.
 
 This extension customizes Google AI Overviews on Google search pages by letting you disable specific overview sections.
 <br>
-[Chrome Web Store Link](https://chromewebstore.google.com/detail/remove-google-ai-overview/meojdbhmcaigdpfckkpoalgmgbknekce)
+[Chrome Web Store Link](https://chromewebstore.google.com/detail/customize-google-ai-overv/meojdbhmcaigdpfckkpoalgmgbknekce)
 
 ## Instalation
 
